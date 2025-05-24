@@ -18,7 +18,7 @@ export function parse(input: string): Statement {
       if (!valueToken) throw new Error("Missing value");
 
       const t_in = next();
-      if (!t_in || t_in.type !== "in") throw new Error("Expected 'in'");
+      if (!t_in || t_in.value !== "in") throw new Error("Expected 'in'");
 
       const keyToken = next();
       if (!keyToken || !isValidKey(keyToken.value)) {
@@ -107,12 +107,12 @@ export function parse(input: string): Statement {
     
       switch (field.value) {
         case "password": {
-          const to = next(); if (!to || to.value !== "to") throw new Error("Expected 'to'");
+          // const to = next(); if (!to || to.value !== "to") throw new Error("Expected 'to'");
           const newPassword = next(); if (!newPassword) throw new Error("Missing new password");
           return { type: "update_user", username: username.value, field: "password", value: newPassword.value };
         }
         case "username": {
-          const to = next(); if (!to || to.value !== "to") throw new Error("Expected 'to'");
+          // const to = next(); if (!to || to.value !== "to") throw new Error("Expected 'to'");
           const newUsername = next(); if (!newUsername) throw new Error("Missing new username");
           return { type: "update_user", username: username.value, field: "username", value: newUsername.value };
         }

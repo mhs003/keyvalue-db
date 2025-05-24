@@ -2,7 +2,7 @@ export type Token = { type: string; value: string };
 
 const KEYWORDS = new Set([
   "put", "in", "get", "delete", "register", "user", "with", "and", "is",
-  "update", "set", "to", "true", "false", "none", "active", "list"
+  "update", "set", "true", "false", "none", "active", "list"
 ]);
 
 export function tokenize(input: string): Token[] {
